@@ -1,0 +1,2 @@
+# WordPressrepo
+automation fundamentals
