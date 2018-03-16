@@ -23,7 +23,18 @@ namespace WordPress.Tests
                      .Login();
 
             //Validation
-            Assert.IsTrue(DashboardPage.IsAt);
+            Assert.IsTrue(new DashboardPage().IsAt, "error");
+        }
+
+        [TestMethod]
+        public void User_Can_Login2()
+        {
+            Assert.IsTrue(new LoginPage2().GoTo()
+                            .LoginAs("Gonzalo")
+                            .WithPassword("Control123!")
+                            .Login()
+                            .GoToDashboardPage.IsAt
+            , "error");
         }
 
         [TestCleanup]

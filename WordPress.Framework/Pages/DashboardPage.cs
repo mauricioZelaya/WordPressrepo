@@ -12,7 +12,7 @@ namespace WordPress.Framework.Pages
     public class DashboardPage
     {
 
-        public static bool IsAt
+        public bool IsAt
         {
             get
             {

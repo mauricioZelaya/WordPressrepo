@@ -54,6 +54,7 @@
     <Compile Include="Browser\SeleniumActions.cs" />
     <Compile Include="Pages\DashboardPage.cs" />
     <Compile Include="Pages\LoginPage.cs" />
+    <Compile Include="Pages\LoginPage2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
