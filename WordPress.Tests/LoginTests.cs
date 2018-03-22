@@ -11,34 +11,39 @@ namespace WordPress.Tests
         [TestInitialize]
         public void Init()
         {
-            BrowserManager.Instance.Init();            
+            BrowserManager.Instance.Init();
         }
 
         [TestMethod]
         public void User_Can_Login()
         {
-            LoginPage.GoTo();
-            //LoginPage.Login("Gonzalo", "Control123!");
+            //Test Steps
+            LoginPage.GoTo();            
             LoginPage.LoginAs("Gonzalo")
                      .WithPassword("Control123!")
                      .Login();
 
             //Validation
-            Assert.IsTrue(PageFactory<DashboardPage>.GetPage.IsAt, "error");
+            Assert.IsTrue(PageFactory<DashboardPage>.GetPage.IsAt,
+                "Error, you are not in the DashboardPage");
         }
 
         [TestMethod]
         public void User_Can_Login2()
         {
-            Assert.IsTrue(PageFactory<LoginPage2>.GetPage
-                            .GoTo()
-                            .LoginAs("Gonzalo")
-                            .WithPassword("Control123!")
-                            .Login()
-                            .GoToDashboardPage.IsAt
-            , "error");
+            //Test Steps
+            Assert.IsTrue(
+                PageFactory<LoginPage2>.GetPage
+                    .GoTo()
+                    .LoginAs("Gonzalo")
+                    .WithPassword("Control123!")
+                    .Login()
+                    
+                    .DashboardPage
+                    .IsAt
+                , "Error, you are not in the DashboardPage");   
         }
-
+        
         [TestCleanup]
         public void Clean()
         {

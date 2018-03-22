@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{510668F4-DA4F-48D5-AA33-DE22E3986F68}</ProjectGuid>
+    <ProjectGuid>{F46CA71F-AACF-4C69-9FB5-B2A976E249CF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WordPress.Framework</RootNamespace>
@@ -52,6 +52,12 @@
     <Compile Include="Browser\BrowserManager.cs" />
     <Compile Include="Browser\DriverManager.cs" />
     <Compile Include="Browser\SeleniumActions.cs" />
+    <Compile Include="Controls\ButtonElement.cs" />
+    <Compile Include="Controls\TextFieldElement.cs" />
+    <Compile Include="Engine\Locator.cs" />
+    <Compile Include="Engine\WebElementBase.cs" />
+    <Compile Include="Engine\WebElementFinder.cs" />
+    <Compile Include="Factories\ControlFactory.cs" />
     <Compile Include="Factories\PageFactory.cs" />
     <Compile Include="Pages\AddNewPostPage.cs" />
     <Compile Include="Pages\DashboardPage.cs" />
@@ -59,12 +65,14 @@
     <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Pages\LoginPage2.cs" />
     <Compile Include="Pages\PostPage.cs" />
+    <Compile Include="Pages\TestPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Drivers\chromedriver.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

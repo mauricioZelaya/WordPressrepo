@@ -21,40 +21,37 @@ namespace WordPress.Tests
         }
 
         [TestMethod]
-        public void Can_Create_post()
+        public void Can_Create_Post()
         {
-
             //Variables
-            // Random values for tittle and Body
+            //Randon values for Title and Body
             var title = StringManager.GenerateTitle();
             var body = StringManager.GenerateBody();
 
             //Test Steps
             PageFactory<LoginPage2>.GetPage
-                                   .GoTo()
-                                   .LoginAs("Gonzalo")
-                                   .WithPassword("Control123!")
-                                   .Login();
+                    .GoTo()
+                    .LoginAs("Gonzalo")
+                    .WithPassword("Control123!")
+                    .Login();
 
-            //create Post
-            PageFactory<AddNewPostPage>.GetPage
+            //Create Post
+            PageFactory<AddNewPostPage>.GetPage            
                 .GoTo()
                 .SetTitle(title)
                 .SetBody(body)
                 .Publish()
                 ;
 
-            PageFactory<EditPostPage>.GetPage
-                .viewPost()
-                ;
+            PageFactory<EditPostPage>.GetPage            
+                .ViewPost();
 
-            //validation
+            //Validation
             //1.
             Assert.IsTrue(PageFactory<PostPage>.GetPage.ValidateTitle(title));
 
             //2.
             PageFactory<PostPage>.GetPage.ValidateTitle2(title);
-
         }
 
         [TestCleanup]

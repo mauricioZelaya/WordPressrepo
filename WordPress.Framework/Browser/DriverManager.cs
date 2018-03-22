@@ -25,9 +25,10 @@ namespace WordPress.Framework.Browser
                 case "Chrome":
                     var chromeOptions = new ChromeOptions();
                     chromeOptions.AddArguments("disable-infobars");
-                    chromeOptions.AddArguments("--start-maximized");
 
-                    instance = new ChromeDriver(AppDomain.CurrentDomain.BaseDirectory + @"\Drivers\", chromeOptions, TimeSpan.FromMinutes(2));
+                    instance = new ChromeDriver(AppDomain.CurrentDomain.BaseDirectory + @"\Drivers\", 
+                        chromeOptions, 
+                        TimeSpan.FromMinutes(2));
                     break;
                 case "IE":
                     instance = new InternetExplorerDriver();

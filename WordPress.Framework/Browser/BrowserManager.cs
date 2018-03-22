@@ -17,7 +17,6 @@ namespace WordPress.Framework.Browser
 
     public sealed class BrowserManager
     {
-
         public IWebDriver Driver { get; private set; }
         public WebDriverWait WaitDriver { get; private set; }
 
@@ -25,7 +24,6 @@ namespace WordPress.Framework.Browser
 
         private BrowserManager()
         {
-
         }
 
         public void GoTo()
@@ -39,10 +37,10 @@ namespace WordPress.Framework.Browser
             WaitDriver = new WebDriverWait(Driver, TimeSpan.FromSeconds(DriverTime.DefaultWaitTime));
 
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(DriverTime.DefaultWaitTime);
-            Driver.Manage().Window.Maximize();
             Driver.Manage().Cookies.DeleteAllCookies();
+            Driver.Manage().Window.Maximize();
         }
-
+        
         public void Close()
         {
             try

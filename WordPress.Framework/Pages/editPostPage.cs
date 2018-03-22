@@ -10,10 +10,10 @@ namespace WordPress.Framework.Pages
 {
     public class EditPostPage
     {
-        public void viewPost()
+        public void ViewPost()
         {
-            BrowserManager.Instance.Driver.FindElement(By.LinkText("View post")).Click();
+            BrowserManager.Instance.Driver.FindElement(By.LinkText("View post"))
+                .Click();
         }
-
     }
 }

@@ -12,6 +12,8 @@ namespace WordPress.Framework.Factories
         {
             get
             {
+                //LOGS
+
                 return new T();
             }
         }

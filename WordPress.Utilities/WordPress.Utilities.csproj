@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7A9DF9A8-908E-420D-A835-82E6620135FC}</ProjectGuid>
+    <ProjectGuid>{3F76FF4F-EF4F-4024-AFBC-1D80975EB6BB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WordPress.Utilities</RootNamespace>

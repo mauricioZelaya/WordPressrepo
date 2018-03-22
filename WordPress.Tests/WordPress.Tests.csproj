@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{89258974-2562-49B4-BFD0-1257090E507C}</ProjectGuid>
+    <ProjectGuid>{B2E763E9-3135-4489-B892-2D118010B5D7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WordPress.Tests</RootNamespace>
@@ -58,11 +58,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WordPress.Framework\WordPress.Framework.csproj">
-      <Project>{510668f4-da4f-48d5-aa33-de22e3986f68}</Project>
+      <Project>{f46ca71f-aacf-4c69-9fb5-b2a976e249cf}</Project>
       <Name>WordPress.Framework</Name>
     </ProjectReference>
     <ProjectReference Include="..\WordPress.Utilities\WordPress.Utilities.csproj">
-      <Project>{7a9df9a8-908e-420d-a835-82e6620135fc}</Project>
+      <Project>{3f76ff4f-ef4f-4024-afbc-1d80975eb6bb}</Project>
       <Name>WordPress.Utilities</Name>
     </ProjectReference>
   </ItemGroup>

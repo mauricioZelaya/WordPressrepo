@@ -20,32 +20,41 @@ namespace WordPress.Framework.Pages
 
         public AddNewPostPage SetTitle(string title)
         {
-            BrowserManager.Instance.Driver.FindElement(By.Id("title")).SendKeys(title);
+            BrowserManager.Instance.Driver.FindElement(By.Id("title"))
+                .SendKeys(title);
 
             return this;
         }
 
         public AddNewPostPage SetBody(string body)
         {
-            var iframe = BrowserManager.Instance.Driver.FindElement(By.Id("content-ifr"));
+            //DefaultContent
+            var iframe = 
+                BrowserManager.Instance.Driver.FindElement(By.Id("content_ifr"));
+            
             BrowserManager.Instance.Driver.SwitchTo().Frame(iframe);
-            //FRAME IFRAME
+            //I'm in the FRAME o IFRAME
             BrowserManager.Instance.Driver.SwitchTo().ActiveElement().SendKeys(body);
-            //SwitchTo DefaultContent
+            //...more FindElement
+
+            //SwitchT DefaultContent
             BrowserManager.Instance.Driver.SwitchTo().DefaultContent();
             BrowserManager.Instance.Driver.Sleep(); //NOTE
 
             //DefaultContent
-            //...more
+            //...more FindElement
+
             return this;
         }
 
         public void Publish()
         {
             var button = BrowserManager.Instance.Driver.FindElement(By.Id("publish"));
-            //class = button button-primary button-large
+
+            //class = 
             button.WaitForAttributeChange("class", "button button-primary button-large")
                 .Click();
+
         }
     }
 }

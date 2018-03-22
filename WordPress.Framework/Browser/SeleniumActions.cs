@@ -55,7 +55,7 @@ namespace WordPress.Framework.Browser
         public static bool WaitForFrame(By iframe)
         {
             try
-            {
+            {                
                 GetWaitDriver.Until(ExpectedConditions.FrameToBeAvailableAndSwitchToIt(iframe));
                 return true;
             }
@@ -66,7 +66,6 @@ namespace WordPress.Framework.Browser
 
             return false;
         }
-
 
     }
 }

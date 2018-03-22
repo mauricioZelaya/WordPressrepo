@@ -10,31 +10,37 @@ namespace WordPress.Framework.Pages
 {
     public class PostPage
     {
-        public bool ValidateTitle(string expectedTitle)
+        public bool ValidateTitle(string expecteTitle)
         {
-            //entry-title
-            var actualTitle = BrowserManager.Instance.Driver.FindElement(By.ClassName("entry-title")).Text;
+            var actutalTitle = BrowserManager.Instance.Driver
+                .FindElement(By.ClassName("entry-title"))
+                .Text;
 
-            return actualTitle.Equals(expectedTitle);
+            //LOGS
+            
+            return actutalTitle.Equals(expecteTitle);
         }
 
-        public void ValidateTitle2(string exepectedTitle)
+        public void ValidateTitle2(string expecteTitle)
         {
-            var actualTitle = BrowserManager.Instance.Driver.FindElement(By.ClassName("entry-title")).Text;
+            var actutalTitle = BrowserManager.Instance.Driver
+                .FindElement(By.ClassName("entry-title"))
+                .Text;
 
-            if (!actualTitle.Equals(exepectedTitle))
+            if (!actutalTitle.Equals(expecteTitle))
             {
                 //ERROR
-                //EXEPTION
-                throw new Exception("Error: The titles are different: " +
-                    "Actual title:" + actualTitle +
-                    "Expected title" + exepectedTitle);
+                //EXPECTION
+                throw new Exception("Error: The titles are different: " + 
+                    "Actual title:" + actutalTitle + 
+                    "Expected title: " + expecteTitle);
             }
             else
             {
                 //GOOD
-                //LOG
+                //LOGS
             }
+
         }
     }
 }
