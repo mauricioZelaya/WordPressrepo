@@ -10,6 +10,14 @@ namespace WordPress.Framework.Pages
 {
     public class EditPostPage
     {
+        public EditPostPage GoTo()
+        {
+            var element = BrowserManager.Instance.Driver.MouseHover(By.Id("menu-posts"));
+            element.Click();
+
+            return this;
+        }
+
         public void ViewPost()
         {
             BrowserManager.Instance.Driver.FindElement(By.LinkText("View post"))

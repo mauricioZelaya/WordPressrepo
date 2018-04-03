@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordPress.Framework", "Word
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordPress.Utilities", "WordPress.Utilities\WordPress.Utilities.csproj", "{3F76FF4F-EF4F-4024-AFBC-1D80975EB6BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordPress.RestClient", "WordPress.RestClient\WordPress.RestClient.csproj", "{AE17C4E2-BD3D-4FA9-83AC-8885DCB2246B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordPress.Logger", "WordPressLogger\WordPress.Logger.csproj", "{7237523D-7429-4938-809B-E1F2365E729F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{3F76FF4F-EF4F-4024-AFBC-1D80975EB6BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F76FF4F-EF4F-4024-AFBC-1D80975EB6BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F76FF4F-EF4F-4024-AFBC-1D80975EB6BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE17C4E2-BD3D-4FA9-83AC-8885DCB2246B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE17C4E2-BD3D-4FA9-83AC-8885DCB2246B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE17C4E2-BD3D-4FA9-83AC-8885DCB2246B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE17C4E2-BD3D-4FA9-83AC-8885DCB2246B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7237523D-7429-4938-809B-E1F2365E729F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7237523D-7429-4938-809B-E1F2365E729F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7237523D-7429-4938-809B-E1F2365E729F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7237523D-7429-4938-809B-E1F2365E729F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

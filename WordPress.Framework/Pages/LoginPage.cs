@@ -1,4 +1,9 @@
 ﻿using OpenQA.Selenium;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using WordPress.Framework.Browser;
 using WordPress.Framework.Controls;
 using WordPress.Framework.Engine;
@@ -39,21 +44,27 @@ namespace WordPress.Framework.Pages
         public void Login()
         {
             //user_login
-
             //BrowserManager.Instance.Driver
             //    .FindElement(By.Id("user_login")).SendKeys(UserName);
-            ControlFactory.GetControl<TextFieldElement>(Locator.Id, "user_login", "User Login").SetValue(UserName);
+            ControlFactory.GetControl<TextFieldElement>(Locator.Id,
+                                                        "user_login",
+                                                        "User Login").SetValue(UserName);
 
             //user_pass
             //BrowserManager.Instance.Driver
             //    .FindElement(By.Id("user_pass")).SendKeys(Password);
-            ControlFactory.GetControl<TextFieldElement>(Locator.Id, "user_pass", "User Password").SetValue(Password);
+            ControlFactory.GetControl<TextFieldElement>(Locator.Id,
+                                                        "user_pass",
+                                                        "User Password").SetValue(Password);
 
             //wp-submit
             //var button = BrowserManager.Instance.Driver
             //   .FindElement(By.Id("wp-submit"));
             //button.Click();
-            ControlFactory.GetControl<ButtonElement>(Locator.Id, "wp-submit", "Submit").Click();
+            ControlFactory.GetControl<ButtonElement>(Locator.Id,
+                                                     "wp-submit",
+                                                     "Submit").Click();
+
         }
     }
 }

@@ -53,6 +53,9 @@
     <Compile Include="Browser\DriverManager.cs" />
     <Compile Include="Browser\SeleniumActions.cs" />
     <Compile Include="Controls\ButtonElement.cs" />
+    <Compile Include="Controls\ContainerElement.cs" />
+    <Compile Include="Controls\SpanElement.cs" />
+    <Compile Include="Controls\TableElement.cs" />
     <Compile Include="Controls\TextFieldElement.cs" />
     <Compile Include="Engine\Locator.cs" />
     <Compile Include="Engine\WebElementBase.cs" />
@@ -60,6 +63,7 @@
     <Compile Include="Factories\ControlFactory.cs" />
     <Compile Include="Factories\PageFactory.cs" />
     <Compile Include="Pages\AddNewPostPage.cs" />
+    <Compile Include="Pages\AllPostsPage.cs" />
     <Compile Include="Pages\DashboardPage.cs" />
     <Compile Include="Pages\EditPostPage.cs" />
     <Compile Include="Pages\LoginPage.cs" />
@@ -67,12 +71,22 @@
     <Compile Include="Pages\PostPage.cs" />
     <Compile Include="Pages\TestPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestCalls\PostCalls.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\WordPress.RestClient\WordPress.RestClient.csproj">
+      <Project>{ae17c4e2-bd3d-4fa9-83ac-8885dcb2246b}</Project>
+      <Name>WordPress.RestClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WordPressLogger\WordPress.Logger.csproj">
+      <Project>{7237523d-7429-4938-809b-e1f2365e729f}</Project>
+      <Name>WordPress.Logger</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Drivers\chromedriver.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

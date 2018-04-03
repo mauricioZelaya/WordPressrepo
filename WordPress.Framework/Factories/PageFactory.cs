@@ -6,16 +6,11 @@ using System.Threading.Tasks;
 
 namespace WordPress.Framework.Factories
 {
-    public class PageFactory<T> where T : new()
+    public class PageFactory
     {
-        public static T GetPage
+        public static T GetPage<T>() where T : new()
         {
-            get
-            {
-                //LOGS
-
-                return new T();
-            }
+            return new T();           
         }
     }
 }

@@ -10,8 +10,9 @@ namespace WordPress.Framework.Engine
 {
     public class WebElementFinder
     {
-        private By _locator { get; set; }
+        private By _locator;
         private string _controlName;
+
         public WebElementFinder(WebElementBase elementBase)
         {
             _locator = elementBase.By;
@@ -20,24 +21,50 @@ namespace WordPress.Framework.Engine
 
         public IWebElement FindElement()
         {
-            //Selenium logic
-            //Implicit wait = x
-            //Explicit wait = v
+            return Search(FindElementCall);
+        }
+
+        public IReadOnlyCollection<IWebElement> FindElements()
+        {
+            return Search(FindElementsCall);
+        }
+
+        public IWebElement FindElementCall()
+        {
+            var element = SeleniumActions.GetWaitDriver
+                        .Until(d => d.FindElement(_locator));
+
+            if (element != null)
+            {
+                return element;
+            }
+            else
+            {
+                string message = $"The control: {_controlName} was not found";
+                throw new Exception(message);
+            }
+        }
+        public IReadOnlyCollection<IWebElement> FindElementsCall()
+        {
+            var element = SeleniumActions.GetWaitDriver
+                        .Until(d => d.FindElements(_locator));
+
+            if (element.Any())
+            {
+                return element;
+            }
+            else
+            {
+                string message = $"The control: {_controlName} was not found";
+                throw new Exception(message);
+            }
+        }
+        public T Search<T>(Func<T> findCriteria)
+        {
             try
             {
-                var element = SeleniumActions.GetWaitDriver.Until(d =>
-                    //method
-                    d.FindElement(_locator));
-
-                if (element != null)
-                {
-                    return element;
-                }
-                else
-                {
-                    string message = $"The control: {_controlName} was not found";
-                    throw new Exception(message);
-                }
+                //DELEGATE
+                return findCriteria();
             }
             catch (NoSuchElementException)
             {
@@ -58,5 +85,6 @@ namespace WordPress.Framework.Engine
                 throw new Exception(message);
             }
         }
+
     }
 }

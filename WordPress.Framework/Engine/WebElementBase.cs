@@ -1,9 +1,7 @@
 ﻿using OpenQA.Selenium;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using WordPress.Framework.Browser;
+using WordPress.Logger;
 
 namespace WordPress.Framework.Engine
 {
@@ -17,13 +15,16 @@ namespace WordPress.Framework.Engine
 
         }
 
-        public WebElementBase(Locator locator, string value, string controlName)
+        public WebElementBase(Locator locator, 
+                              string value,
+                              string controlName)
         {
             ControlName = controlName;
-            SearchProperty(locator, value);         
+            SearchProperty(locator, value);
         }
 
-        private void SearchProperty(Locator locator, string value)
+        private void SearchProperty(Locator locator,
+                                    string value)
         {
             switch (locator)
             {
@@ -39,30 +40,65 @@ namespace WordPress.Framework.Engine
                 case Locator.ClassName:
                     By = By.ClassName(value);
                     break;
-
-                    //TODO: complete all the lcators
-
+                case Locator.TagName:
+                    By = By.TagName(value);
+                    break;
+                 //TODO: complete all the locators
             }
         }
 
         public void Click()
         {
             WebElement.Click();
+
+            //Log
+            var message = $"The (Control) [ {ControlName} ] was clicked";
+            LoggerManager.Instance.Information(message);
+
+            //Log
+            //var message2 = $"The (Button) [ {ControlName} ] is displayed";
+            //var message3 = $"the (TextField) [ {ControlName} contains]" + $" the WRONG value: [ {currentValue} ], when it " +
+            //    $" should contain the expected value: [ {expectedValue} ].";
+            //var message4 = $"the (TextField) [ {ControlName} contains]" + $" the CORRECT value: [ {currentValue} ]";
         }
+
+        public IWebElement MouseHover()
+        {
+            return WebElement.MouseHover();
+        }
+
+        //GET TEXT
+        //DrawHighlight
+
 
         private IWebElement _webElement;
-
         public IWebElement WebElement
         {
-            get {
-                    if (_webElement == null)
-                    {
+            get
+            {
+                if (_webElement == null)
+                {
                     var webElement = new WebElementFinder(this);
                     _webElement = webElement.FindElement();
-                    }
-                    return _webElement;
                 }
+
+                return _webElement;
+            }
         }
 
+        private IReadOnlyCollection<IWebElement> _webElements;
+        public IReadOnlyCollection<IWebElement> WebElements
+        {
+            get
+            {
+                if (_webElements == null)
+                {
+                    var webElement = new WebElementFinder(this);
+                    _webElements = webElement.FindElements();
+                }
+
+                return _webElements;
+            }
+        }
     }
 }

@@ -1,12 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WordPress.Framework.Browser;
 using WordPress.Framework.Factories;
 using WordPress.Framework.Pages;
+using WordPress.Framework.RestCalls;
 using WordPress.Utilities;
 
 namespace WordPress.Tests
@@ -29,30 +25,60 @@ namespace WordPress.Tests
             var body = StringManager.GenerateBody();
 
             //Test Steps
-            PageFactory<LoginPage2>.GetPage
+            PageFactory.GetPage<LoginPage2>()
                     .GoTo()
                     .LoginAs("Gonzalo")
                     .WithPassword("Control123!")
                     .Login();
 
             //Create Post
-            PageFactory<AddNewPostPage>.GetPage            
+            PageFactory.GetPage<AddNewPostPage>()
                 .GoTo()
                 .SetTitle(title)
                 .SetBody(body)
                 .Publish()
                 ;
 
-            PageFactory<EditPostPage>.GetPage            
+            PageFactory.GetPage<EditPostPage>()
                 .ViewPost();
 
             //Validation
             //1.
-            Assert.IsTrue(PageFactory<PostPage>.GetPage.ValidateTitle(title));
+            Assert.IsTrue(PageFactory.GetPage<PostPage>().ValidateTitle(title));
 
             //2.
-            PageFactory<PostPage>.GetPage.ValidateTitle2(title);
+            PageFactory.GetPage<PostPage>().ValidateTitle2(title);
         }
+
+        [TestMethod]
+        public void Can_Search_Post()
+        {
+            //Variables
+            var title = StringManager.GenerateTitle();
+            var body = StringManager.GenerateBody();
+
+            //Test Steps
+            PageFactory.GetPage<LoginPage2>()
+                    .GoTo()
+                    .LoginAs("Gonzalo")
+                    .WithPassword("Control123!")
+                    .Login();
+
+            //PreCondition
+            PostCalls.CreatePost(title, body);
+            //Create Post - WEB API
+
+
+
+            //Test Steps
+            PageFactory.GetPage<AllPostsPage>()            
+                .GoTo()
+                .SearchPost(title)
+                .DoesPostExistWithTitle(title)
+                ;
+
+        }
+
 
         [TestCleanup]
         public void Clean()

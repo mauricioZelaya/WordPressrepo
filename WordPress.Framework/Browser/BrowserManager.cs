@@ -36,7 +36,8 @@ namespace WordPress.Framework.Browser
             Driver = new DriverManager().DriverFactory();
             WaitDriver = new WebDriverWait(Driver, TimeSpan.FromSeconds(DriverTime.DefaultWaitTime));
 
-            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(DriverTime.DefaultWaitTime);
+            //DELETE THIS
+            //Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(DriverTime.DefaultWaitTime);
             Driver.Manage().Cookies.DeleteAllCookies();
             Driver.Manage().Window.Maximize();
         }

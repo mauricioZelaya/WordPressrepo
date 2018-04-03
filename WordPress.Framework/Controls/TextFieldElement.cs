@@ -14,7 +14,8 @@ namespace WordPress.Framework.Controls
 
         }
 
-        public TextFieldElement(Locator locator, string value, string controlName) : base(locator, value, controlName)
+        public TextFieldElement(Locator locator, string value, string controlName)
+            : base(locator, value, controlName)
         {
 
         }

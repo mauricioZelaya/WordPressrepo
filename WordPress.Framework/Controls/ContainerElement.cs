@@ -7,14 +7,14 @@ using WordPress.Framework.Engine;
 
 namespace WordPress.Framework.Controls
 {
-    public class ButtonElement : WebElementBase
+    public class ContainerElement : WebElementBase
     {
-        public ButtonElement()
+        public ContainerElement()
         {
 
         }
 
-        public ButtonElement(Locator locator, string value, string controlName)
+        public ContainerElement(Locator locator, string value, string controlName)
             : base(locator, value, controlName)
         {
 
